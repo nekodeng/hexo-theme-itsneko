@@ -1,0 +1,407 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/projectbg.jpg")!important;
+    } */
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    body.dark .page .content li {
+        background: rgba(34,34,34,0.55)!important;
+    }
+    
+    #switchspring {
+        bottom: 223px;
+    }
+    .card-content {
+        padding: 12px!important;
+    }
+    .miaoshus {
+        padding: 12px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 95%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 3px auto 0px;
+    }
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+</style>
+<!-- 以下书单模块css样式 -->
+<style>
+    @media screen and (min-width: 768px) {
+        #book .page {
+        /* background-color: hsla(0,0%,100%,.7); */
+        -webkit-box-shadow: 0 8px 16px rgba(0,0,0,.12);
+        box-shadow: 0 8px 16px rgba(0,0,0,.12);
+        }
+    }
+    #book .page {
+        overflow: hidden;
+        border-radius: 3px;
+    }
+    @media screen and (min-width: 768px) {
+        #book .content {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    #book .content {
+        display: grid;
+        grid-column-gap: 16px;
+        padding: 16px;
+        text-align: justify;
+    }
+    #book .content li {
+        list-style: none;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        background-color: hsla(0,0%,100%,.7);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    #book .content li .info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        padding: 20px 20px 0;
+        line-height: 1.7;
+        list-style: none;
+    }
+    .book-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-perspective: 600px;
+        perspective: 600px;
+    }
+    .book {
+        position: relative;
+        width: 100px;
+        height: 150px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateY(-30deg);
+        transform: rotateY(-30deg);
+        -webkit-transition: 1s ease;
+        transition: 1s ease;
+        -webkit-animation: bookRotate 0s 1s ease 0s;
+        animation: bookRotate 0s 1s ease 0s;
+        list-style: none;
+    }
+    .book:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 23px;
+        height: 146px;
+        -webkit-transform: translateX(84.5px) rotateY(90deg);
+        transform: translateX(84.5px) rotateY(90deg);
+        background: -webkit-gradient(linear,left top,right top,from(#fff),color-stop(5%,#f9f9f9),color-stop(10%,#fff),color-stop(15%,#f9f9f9),color-stop(20%,#fff),color-stop(25%,#f9f9f9),color-stop(30%,#fff),color-stop(35%,#f9f9f9),color-stop(40%,#fff),color-stop(45%,#f9f9f9),color-stop(50%,#fff),color-stop(55%,#f9f9f9),color-stop(60%,#fff),color-stop(65%,#f9f9f9),color-stop(70%,#fff),color-stop(75%,#f9f9f9),color-stop(80%,#fff),color-stop(85%,#f9f9f9),color-stop(90%,#fff),color-stop(95%,#f9f9f9),to(#fff));
+        background: linear-gradient(90deg,#fff,#f9f9f9 5%,#fff 10%,#f9f9f9 15%,#fff 20%,#f9f9f9 25%,#fff 30%,#f9f9f9 35%,#fff 40%,#f9f9f9 45%,#fff 50%,#f9f9f9 55%,#fff 60%,#f9f9f9 65%,#fff 70%,#f9f9f9 75%,#fff 80%,#f9f9f9 85%,#fff 90%,#f9f9f9 95%,#fff);
+    }
+    .book>:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 150px;
+        -webkit-transform: translateZ(12.5px);
+        transform: translateZ(12.5px);
+        border-radius: 0 2px 2px 0;
+        -webkit-box-shadow: 5px 5px 20px #666;
+        box-shadow: 5px 5px 20px #666;
+    }
+    .book:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 150px;
+        -webkit-transform: translateZ(-12.5px);
+        transform: translateZ(-12.5px);
+        background-color: #555;
+        border-radius: 0 2px 2px 0;
+    }
+    #book .content li .info>div {
+        margin-left: 32px;
+    }
+    #book .content li .info h3 {
+        font-size: 16px;
+    }
+    #book .content li .info p a {
+        position: relative;
+        color: #b854d4;
+    }
+    #book .content li .info p a:before {
+        content: " " attr(href);
+        position: absolute;
+        padding: 0 4px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        pointer-events: none;
+        font-family: Fontello;
+        font-size: 12px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        border-radius: 3px;
+        background-color: #fff;
+        opacity: 0;
+        -webkit-transform: scale(.7) translateY(-75%);
+        transform: scale(.7) translateY(-75%);
+        -webkit-transform-origin: left center;
+        transform-origin: left center;
+        -webkit-transition: all .3s ease 0s;
+        transition: all .3s ease 0s;
+    }
+    #book .content li .info p a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: #b854d4;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+        -webkit-transition: -webkit-transform .3s ease-out;
+        transition: -webkit-transform .3s ease-out;
+        transition: transform .3s ease-out;
+        transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    }
+    #book .content li .info .fa-star {
+        margin-right: 4px;
+        color: #d68fe9;
+    }
+    .icon-star:before {
+        content: "\e80b";
+    }
+    [class*=" icon-"]:before, [class^=icon-]:before {
+        font-family: Fontello;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    #book .content li .description {
+        padding: 12px 20px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    #book .content li .info p {
+        font-size: 14px;
+        line-height: 1.7;
+
+    }
+    @media screen and (min-width: 768px) {
+        #book .content li:hover {
+            -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+            -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+            box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        }
+    }
+    #book .content li {
+        list-style: none;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        background-color: hsla(0,0%,100%,.7);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    #book .content li:hover .book {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    .quote {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 16px;
+        padding: 32px 0;
+    }
+    .quote i:first-child {
+        top: 0;
+        left: 16px;
+    }
+    .quote i {
+        position: absolute;
+        font-size: 24px;
+    }
+    .icon-quote-left:before {
+        content: "\f10d";
+    }
+    [class*=" icon-"]:before, [class^=icon-]:before {
+        font-family: Fontello;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<main class="content">
+    <div class="container">
+        <div class="card">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/gu1.png" />
+                </div>              
+            </div>
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <div class="miaoshus">
+                        <div class="title center-align">“ 博主项目一览 ”
+                    </div>
+
+                    <!-- 书单模块开始 -->
+                    <div id="book">
+                    <div class="page">
+                      <ul class="content">
+                        <!-- 每个li标签内容代表一本书籍的所有信息 -->
+                        <li>
+                            <div class="info">
+                                <a href="https://gitee.com/nekodeng/vue_shop_system" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div class="book">
+                                        <img src="/medias/project-img/vue_system.png">
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="https://gitee.com/nekodeng/vue_shop_system" target="_blank"><h3>《 vue+element商品后台管理系统 》</h3></a>
+                                    <p>作者：itsNekoDeng</p>
+                                    <p>完成时间：2019-03-06</p>
+                                    <p>项目进度：大体已完成...</p>
+                                    <p>
+                                        <span>项目源码：</span>
+                                        <a href="https://gitee.com/nekodeng/vue_shop_system" target="_blank" rel="noopener noreferrer"> vue+element商品后台管理系统 </a>
+                                    </p>
+                                    <p> 
+                                        <span>推荐指数：</span>
+                                        <span></span>
+                                        <!-- 推荐指数，多少个星星就有以下多少个i标签 -->
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="description">“ 一个基于vue和element的后台管理系统，vue2.x + element，其中本源码中的vue_api_server文件为项目的api接口文件 ”</p>
+                        </li>  
+                        <!-- 每个li标签内容代表一本书籍的所有信息 -->
+                        <li>
+                            <div class="info">
+                                <a href="https://github.com/nekodeng/supermall-vue2-cli3" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div class="book">
+                                        <img src="/medias/project-img/vue-mall.png">
+                                    </div>
+                                </a>
+                                <div>
+                                    <a href="https://github.com/nekodeng/supermall-vue2-cli3" target="_blank"><h3>《 仿蘑菇街H5vue项目-vue2-cli3 》</h3></a>
+                                    <p>作者：itsNekoDeng</p>
+                                    <p>完成时间：2019-02-08</p>
+                                    <p>项目进度：大体已完成...</p>
+                                    <p>
+                                        <span>项目源码：</span>
+                                        <a href="https://github.com/nekodeng/supermall-vue2-cli3" target="_blank" rel="noopener noreferrer"> 仿蘑菇街H5vue项目-vue2-cli3 </a>
+                                    </p>
+                                    <p> 
+                                        <span>推荐指数：</span>
+                                        <span></span>
+                                        <!-- 推荐指数，多少个星星就有以下多少个i标签 -->
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="description">“ About
+                                After learning VUE at B station, the project of imitation mushroom street actual combat, using VUE family bucket ”</p>
+                        </li>
+                      </ul>
+                    </div>
+                  <!-- 书单模块结束 -->
+                  </div>
+                  </div>
+                </div>
+            </div>
+            <div class="card">
+                <% if (theme.gitalk && theme.gitalk.enable) { %>
+                <%- partial('_partial/gitalk') %>
+                <% } %>
+
+                <% if (theme.gitment.enable) { %>
+                <%- partial('_partial/gitment') %>
+                <% } %>
+
+                <% if (theme.disqus.enable) { %>
+                <%- partial('_partial/disqus') %>
+                <% } %>
+
+                <% if (theme.livere && theme.livere.enable) { %>
+                <%- partial('_partial/livere') %>
+                <% } %>
+
+                <% if (theme.valine && theme.valine.enable) { %>
+                <%- partial('_partial/valine') %>
+                <% } %>
+                
+                <% if (theme.minivaline && theme.minivaline.enable) { %>
+                <%- partial('_partial/minivaline') %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,288 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    #switchspring {
+        bottom: 243px;
+    }
+    .container .row {
+        margin-top: 69px;
+    }
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    .musis > div {
+        margin-bottom: 60px;
+    }
+    .aplayer {
+        border-radius: 8px!important;
+    }
+    .comment-scroll {
+        bottom: 93px;
+    }
+    .v[data-class=v] .vcards {
+        display: none;
+    }
+    .musis div p {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 18px;
+    }
+    .musictitle {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 20px;
+        margin-bottom: 0px!important;
+        padding-top: 24px;
+    }
+    body.dark .musictitle, body.dark .tipsbili {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .tipsbili, .tipsbili code {
+        font-size: 0.2rem;
+        padding: 4px 10px;
+    }
+    
+    /* 修改小屏幕下logo文字样式. */
+    @media only screen and (max-width: 600px) {
+        .about-cover {
+            height: 64vh;
+        }   
+        .container .row {
+            margin-top: 50px;
+        }
+        .biye {
+            padding: 0 8px 8px 8px!important;
+            width: 96%;
+            height: 96%;
+        }
+        .musis > div {
+            margin-bottom: 45px;
+        }
+        
+    }
+    .biye {
+        padding: 0 24px 24px 24px;
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+    }
+    .biye iframe {
+        border-radius: 8px;
+    }
+</style>
+
+<style>
+    @media only screen and (max-width: 800px) {
+      .swbk {
+          padding: 26px 2px!important;
+          margin: 14px 0px!important;
+      }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 1.3rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 8px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card musis">
+        
+        <div class="musictitle center-align">
+        <!-- 福袋按钮 -->
+        <div class="caishendeng">        
+            <div class="guguxian">
+                <img class="caishenpic gugus" src="/medias/spring-img/tang.png" />
+            </div>              
+        </div>
+            🐖 这是itsNeko开源博主的B站视频，记得修改下面视频id成自己的~<br>
+        </div>
+        <hr>
+        
+        <!-- 2019成都BW初体验模块 -->
+        <div class="biye">
+            <p>🎬 <i style="border-bottom: 1px solid #ad7a86;">2019成都BW</i> 初体验vlog</p>
+
+            <div class="swbk">
+                <!-- 福袋按钮 -->
+                <div class="caishendeng">        
+                    <div class="caishenxian">
+                        <img class="caishenpic huadengpic" src="/medias/spring-img/huadeng.png" />
+                    </div>              
+                </div>
+                <div class="label" style="color: rgb(134, 193, 102);">
+                    <!-- 小帽子 -->
+                    <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                    <span>itsNeko开源博主</span></div>
+                <p><i style="border-bottom: 1px solid #ad7a86;">2019.12</i>  itsNeko开源博主的漫展之旅</p>
+                <p><i style="border-bottom: 1px solid #ad7a86;">bilibili world</i> 登船初体验，<i style="border-bottom: 1px solid #ad7a86;">扭蛋机/福袋/coser/手办/游戏</i> ...</p>
+                <p>(博主真的算不上一个二次元少年，只是因为好奇这个文化，所以就来看看了...)</p>
+            </div>
+            
+            <div style="position: relative; padding: 30% 45%;">
+                <iframe style="
+                    position: absolute; 
+                    width: 100%; 
+                    height: 100%; 
+                    left: 0; top: 0;" 
+                    src="//player.bilibili.com/player.html?aid=80181162&bvid=BV1qJ41147r7&cid=137214952&page=1&high_quality=1"
+                    scrolling="no" 
+                    border="0" 
+                    frameborder="no" 
+                    framespacing="0" 
+                    allowfullscreen="true">
+                </iframe>
+            </div>
+        </div>
+
+            <!-- 哔哩哔哩链接 -->
+            <div class="musiclink biye">
+                <a href="https://space.bilibili.com/107492592" target="_blank">
+                    🎬 <i style="border-bottom: 1px solid #ad7a86;">博主的哔哩哔哩站点 </i> 链接
+                </a>    
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic huadengpic" src="/medias/spring-img/homes.png" />
+                        </div>              
+                    </div>
+                    <!-- 圣诞按钮 -->
+                    <div class="shengdandeng">        
+                        <div class="shengdanxianyou">
+                            <img class="shengdanpic fudai" src="/medias/christmas-img/ball.png" />
+                        </div>              
+                    </div>
+                    <div class="label" style="color: rgb(245, 150, 170);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <!-- 圣诞小帽子 -->
+                        <img class="labelmz" id="shengdanmz" src="/medias/christmas-img/shengdanmao.png" />
+                        <span>UID : 107492592</span></div>
+                    <p>
+                        哔哩哔哩站点链接：<a href="https://space.bilibili.com/107492592" style="color:#42b983;">番茄鱼啊</a>
+                        <div class="tipsbili">tips~ : 引入哔哩哔哩视频链接时，在src引入路径最后加上<code>&high_quality=1</code>可开启最高画质哦~ (1=最高画质 0=最低画质)</div>         
+                    </p>
+                </div>           
+            </div>       
+        </div>
+
+        <div class="card">
+            <!-- 以下是评论模块 -->
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+            <!-- <p style="text-align: center;padding: 0px 20px 10px;color: #969696;">这里的评论板块不知道怎么了，不能显示大家的评论，也许是leancloud配置问题吧，望理解，<br>所以访客朋友们请移步去我的留言板评论吧，或许你有解决办法也请告知我哦~</p> -->
+        </div>
+
+    </div>
+</main>

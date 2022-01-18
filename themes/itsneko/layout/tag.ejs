@@ -1,0 +1,113 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    .bg-cover {
+        height: 44vh;
+    }
+    #sma {
+        bottom: 118px;
+    }
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+</style>
+<main class="content">
+    <%
+    var hashCode = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        var hash = 0;
+        for (var i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    %>
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            <% page.posts.sort('date').reverse().forEach(post => { %>
+            <%
+                var tagArr = [];
+                if (post.tags && post.tags.length > 0) {
+                    post.tags.forEach(tag => {
+                        tagArr.push(tag.name);
+                    });
+                }
+                var tags = tagArr.join(', ');
+            %>
+            <div class="article tag-post col s12 m6 l4" data-tags="<%- tags %>">
+                <div class="card">
+                    <a href="<%- url_for(post.path) %>">
+                        <div class="card-image tag-image">
+                            <% if (post.img) { %>
+                            <img src="<%- url_for(post.img) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } else { %>
+                            <%
+                                var featureimg = theme.featureImages[Math.abs(hashCode(post.title) % theme.featureImages.length)];
+                            %>
+                            <img src="<%- theme.jsDelivr.url %><%- url_for(featureimg) %>" class="responsive-img" alt="<%= post.title %>">
+                            <% } %>
+                            <span class="card-title">
+                              <!-- 文章卡片hover线条效果 -->
+                              <span class="titlesline">
+                                <style>
+                                  .titlesline {
+                                    width: 0px;
+                                    height: 4px;
+                                    background-color: pink;
+                                    border-radius: 2px;
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 24px;
+                                  }
+                                  body.dark .titlesline {
+                                    filter: brightness(.7);
+                                  }
+                                  article .card .titlesline {
+                                    transition: all 0.36s ease;
+                                  }
+                                  article .card-image:hover .titlesline {
+                                    width: 36px;
+                                  }
+                                </style>
+                              </span>
+                              <%= post.title %>
+                            </span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i><%= date(post.date, config.date_format) %>
+                            </span>
+                            <span class="publish-author">
+                                <% if (post.categories && post.categories.length > 0) { %>
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                <% post.categories.forEach(category => { %>
+                                <a href="<%- url_for(category.path) %>" class="post-category">
+                                <%- category.name %>
+                                </a>
+                                <% }); %>
+                                <% } else if (post.author && post.author.length > 0) { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- post.author %>
+                                <% } else { %>
+                                <i class="fas fa-user fa-fw"></i>
+                                <%- config.author %>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </article>
+</main>
+
+<% if (page.total > 1) { %>
+<%- partial('_partial/paging') %>
+<% } %>

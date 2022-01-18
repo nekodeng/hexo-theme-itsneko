@@ -1,0 +1,241 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/votebg.jpg")!important;
+    } */
+    @media only screen and (min-width: 1060px) {
+        .bg-cover {
+            background-position-y: -270px;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .miaoshus {
+            text-align: left;
+        }
+    }
+    @media screen and (min-width: 362px) and (max-width: 500px) {
+        .bg-cover {
+            background-position-x: -142px;
+            height: 50vh!important;
+        }
+    }
+
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    .card-content {
+        padding: 12px!important;
+    }
+    
+    .miaoshus {
+        padding: 12px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 95%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 12px auto;
+    }
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+    .wrap p {
+        font-family: 'Architects Daughter', cursive!important;
+        font-size: 18px!important;
+        margin: 15px auto!important;
+    }
+    .im0now {
+        color: #e96900;
+        font-size: 20px!important;
+    }
+    .HotDate {
+        color: #e96900;
+        font-size: 26px;
+        font-weight: 400;
+        text-align: center;
+        margin: 10px auto;
+    }
+    .biaotis {
+        margin: 10px auto;
+        text-align: center;
+    }
+    .biaotis span {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 19px;
+        margin: 15px auto;
+        padding-bottom: 6px;
+    }
+    body.dark .biaotis span {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .bg-cover {
+        height: 63vh;
+    }
+    .bg-cover .container {
+        margin-top: 77px;
+    }
+</style>
+
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 0!important;
+        }
+    }
+    #switchspring {
+        bottom: 223px;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 10px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic lions" src="/medias/spring-img/lion.png" />
+                        </div>              
+                    </div>
+                    <div class="label" style="color: rgb(178, 143, 206);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <span>热爱开源的 Neko ~</span></div>
+                    <p>热爱开源，开源带给了我很多欢乐，写的东西被使用被认可也带给了我极大的满足感，很开心能帮助到别人，会让人感觉在 Make the world better (* ॑꒳ ॑* )⋆*。投票方式：可以在<code>下方评论</code>，建议直接<code>公众号投票</code>。‘<code>赞成开源，开源使我快乐</code>’ ，或者 ‘<code>不赞成，个人博客应该有各自不同的风格</code>’，最后，博主会统计一下大家的评论意见，若赞成的人数达到能开源的地步，后续就会在github开源出来，敬请期待。 </p>
+                    <p>itsNeko博客微信公众号：名称" itsNekoDeng博客 "，扫一扫订阅我，这样你就能准时收到我的文章更新啦。
+                      <div><img src="/medias/qrcode_for_gh.jpg" width="150" height="150" style="margin: 0 auto;display: block;" /></div>
+                  </p>
+                </div>
+            </div>
+        </div>
+      
+
+        <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+        </div>
+    </div>
+</main>

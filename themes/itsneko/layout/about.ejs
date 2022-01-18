@@ -1,0 +1,275 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+  .about-cover {
+    height: 75vh;
+  }
+
+  .sitemapss {
+    margin: 27px auto;
+  }
+
+  @media only screen and (max-width: 601px) {
+    #switchspring {
+      bottom: 178px !important;
+    }
+  }
+
+  #sma {
+    bottom: 139.25px;
+  }
+
+  .comment-scroll {
+    bottom: 79.25px;
+  }
+
+  .bg-cover::before {
+    background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+  }
+
+  .about-cover {
+    height: 110vh;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .about-cover {
+      height: 64vh;
+    }
+  }
+
+  iframe {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  body.dark iframe {
+    opacity: 0.7;
+  }
+</style>
+<style>
+  @media only screen and (max-width: 800px) {
+    .swbk {
+      padding: 26px 2px !important;
+      margin: 0 !important;
+    }
+
+    .swbk ol {
+      padding: 2px 10px;
+    }
+  }
+
+  .swbk {
+    position: relative;
+    padding: 26px 20px;
+    font-style: italic;
+    margin: 10px 0px;
+    -webkit-box-shadow: 0 14px 38px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .06);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, .08), 0 3px 8px rgba(0, 0, 0, .06);
+    -webkit-transition: all .3s ease 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
+    transition: all .3s ease 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
+    transition: all .3s ease 0s, transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
+    transition: all .3s ease 0s, transform .6s cubic-bezier(.6, .2, .1, 1) 0s, -webkit-transform .6s cubic-bezier(.6, .2, .1, 1) 0s;
+  }
+
+  .swbk:hover {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-box-shadow: 0 14px 38px rgba(0, 0, 0, .14), 0 3px 8px rgba(0, 0, 0, .12);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, .14), 0 3px 8px rgba(0, 0, 0, .12);
+  }
+
+  .swbk:before {
+    content: " “ ";
+    top: 56px;
+    left: -14px;
+  }
+
+  .swbk:after {
+    content: " ” ";
+    bottom: 8px;
+    right: 5px;
+  }
+
+  .swbk:after,
+  .swbk:before {
+    position: absolute;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    text-decoration: inherit;
+  }
+
+  .ziwojieshao .swbk:after,
+  .ziwojieshao .swbk:before {
+    display: none;
+  }
+
+  body.dark .swbk:after,
+  body.dark .swbk:before {
+    color: #d2c9c9;
+  }
+
+  .swbk p {
+    font-size: 19px !important;
+    line-height: 2.4rem;
+    text-indent: 2rem;
+    font-style: italic;
+    font-family: 'Architects Daughter', cursive !important;
+  }
+
+  .swbk .label {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0 14px 0 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 0 3px 3px 0;
+    background-color: currentColor;
+  }
+
+  .swbk .label span {
+    color: #fff;
+  }
+
+  .swbk .label:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0 16px 16px 0;
+    border-color: transparent;
+    border-right-color: currentColor;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+  }
+
+  @media screen and (min-width: 768px) {
+    .swbk .label {
+      left: -37px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .swbk .label {
+      left: -18px;
+    }
+
+    .swbk p {
+      padding: 2px 8px;
+    }
+  }
+</style>
+
+<main class="content">
+  <div id="aboutme" class="container about-container">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="post-statis col l4 hide-on-med-and-down">
+            <%- partial('_partial/post-statis') %>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="profile center-align">
+              <div class="avatar toupic">
+                <!-- 中国节日小帽子 -->
+                <img class="xiaomaozitx" id="xiaomaozitx" src="/medias/spring-img/maozi.png" />
+                <img src="<%- theme.jsDelivr.url %><%- url_for(theme.profile.avatar) %>" alt="<%- config.author %>"
+                  class="circle responsive-img avatar-img">
+              </div>
+              <div class="author">
+                <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
+                  <%- partial('_partial/post-statis') %>
+                </div>
+                <div class="title"><%- config.author %></div>
+                <div class="career"><%- theme.profile.career %></div>
+                <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
+                  <%- partial('_partial/social-link') %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col l4 hide-on-med-and-down">
+            <div class="social-link">
+              <%- partial('_partial/social-link') %>
+            </div>
+          </div>
+        </div>
+
+        <div class="introduction center-align">
+          <%= theme.profile.introduction %>
+        </div>
+
+        <div class="ziwojieshao">
+          <h3>🐷 关于我哦</h3>
+          <div class="swbk">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">
+              <div class="caishenxian">
+                <img class="caishenpic lions" src="/medias/spring-img/lion.png" />
+              </div>
+            </div>
+            <div class="label" style="color: rgb(178, 143, 206);">
+              <!-- 小帽子 -->
+              <img class="labelmz" src="/medias/spring-img/maozi.png" />
+              <span>itsNeko开源博客</span>
+            </div>
+            <p>
+              <ol>
+                <li>这里是个人简介，你好，这里是itsNeko开源博客作者： <a href="https://dyfa.top/" target="_blank">https://dyfa.top</a></li>
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86"
+                  src="//music.163.com/outchain/player?type=2&amp;id=5248060&amp;auto=1&amp;height=66">itsNeko开源博客宝藏歌曲</iframe>
+              </ol>
+            </p>
+          </div>
+
+          <h3>💴 关于资助itsNeko开源本博主</h3>
+          <div class="swbk">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">
+              <div class="caishenxian">
+                <img class="caishenpic huadengpic" src="/medias/spring-img/dragon-boat.png" />
+              </div>
+            </div>
+            <div class="label" style="color: rgb(178, 143, 206);">
+              <!-- 小帽子 -->
+              <img class="labelmz" src="/medias/spring-img/maozi.png" />
+              <span>买个馒头吃吧</span></div>
+            <p>如果你觉得本开源博客不错的话，可根据意愿赞赏一下itsNeko，感谢支持哦~ <a target="_blank" href="https://dyfa.top/donate/">点击感谢回馈博主 ~</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <% if (theme.gitalk && theme.gitalk.enable) { %>
+      <%- partial('_partial/gitalk') %>
+      <% } %>
+
+      <% if (theme.gitment.enable) { %>
+      <%- partial('_partial/gitment') %>
+      <% } %>
+
+      <% if (theme.disqus.enable) { %>
+      <%- partial('_partial/disqus') %>
+      <% } %>
+
+      <% if (theme.livere && theme.livere.enable) { %>
+      <%- partial('_partial/livere') %>
+      <% } %>
+
+      <% if (theme.valine && theme.valine.enable) { %>
+      <%- partial('_partial/valine') %>
+      <% } %>
+
+      <% if (theme.minivaline && theme.minivaline.enable) { %>
+      <%- partial('_partial/minivaline') %>
+      <% } %>
+    </div>
+  </div>
+</main>

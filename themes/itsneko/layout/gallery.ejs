@@ -1,0 +1,255 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    #sma {
+        bottom: 150px;
+    }
+    .comment-scroll {
+        bottom: 83px;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    #switchspring {
+        bottom: 223px;
+    }
+</style>
+<!-- 增加相册显示的特效样式 -->
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/gallerybg.jpg")!important;
+    } */
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    @media only screen and (max-width: 600px) {
+        .about-cover {
+            height: 64vh;
+        }
+    }
+    .photo {
+        padding: 0 40px!important;
+        display: inline-block;
+        position: relative;
+        transition: all .6s;
+    }
+    .biaotiss {
+        padding: 8px 10px;
+        color: #4c4c4e;
+        text-align: center;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .img-item {
+        padding: .2rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 2px 2px 0 #aaa;
+        transition: all .4s cubic-bezier(.63,.15,.03,1.12);
+        margin-bottom: 20px;
+    }
+    .photo:nth-child(odd) {
+        transform: rotateZ(-5deg);
+    }    
+    .photo:nth-child(even) {
+        transform: rotateZ(5deg);
+    }
+    .text_des{
+        position: absolute;
+        width: 92%;
+        height: 100%;
+        top: 0;
+        color: #000;
+        overflow: hidden;
+    }
+    .text_des h3{
+        margin: 5px 0 8px 0px;
+        right: 40px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+        position: absolute;
+        top: 10%;
+        font-style: italic;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        /*transform: translateX(200px);  */
+    }
+    .text_des p{
+        left: 15px;
+        position: absolute;
+        top: 50%;
+    /*    transform: translateX(-200px); 
+        transition-delay: 0.2s;    */
+    }
+    .my-gallery .photo img {
+        border-radius: 10px;
+        height: 240px;
+    }
+    .card .card-content {
+        padding: 24px 24px 24px 24px;
+    }
+    .miaoshus {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 95%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 12px auto;
+    }
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+    .img-item {
+            transition: all 0.4s ease-out;
+        }
+        .img-item a img{
+            opacity: 1;
+            transition: all 0.4s ease-out;
+        }
+        .img-item a:hover img{
+            opacity: 0.8;
+        }   
+        .biaotiss {
+            font-family: MV Boli;
+        }   
+        .miaoshus .title {
+        font-family: MV Boli;
+    } 
+    .my-gallery .row  .photo[data-spmid="./特辑-十年一梦-回顾湖人2019-2020赛季夺冠之旅"],
+    .my-gallery .row  .photo[data-spmid="./盘点-詹姆斯总决赛数据排名"],
+    .my-gallery .row  .photo[data-spmid="./知名摄影师最爱的24张科比图集"]
+        {
+            display: none;
+        }
+     /*大屏幕下(桌面类)的样式*/
+    @media only screen and (min-width: 993px) {
+        .text_des h3{
+            transform: translateX(200px);
+        }
+        .text_des p{
+            transform: translateX(-200px); 
+            transition-delay: 0.2s;
+        }
+        .animate-text {
+            opacity: 0;
+            transition: all 0.6s ease-in-out; 
+        }
+    }
+    /*小屏幕下(桌面类)的样式*/
+    @media only screen and (max-width: 500px) {
+        .my-gallery .photo img {
+            height: 186px;
+        }
+    }
+
+</style>
+<main class="content">
+    <div class="container chip-container">
+        <div class="card">
+            <div class="card-content">
+                <!-- 福袋按钮 -->
+                <div class="caishendeng">        
+                    <div class="guguxian">
+                        <img class="caishenpic gugus" src="/medias/spring-img/caishen.png" />
+                    </div>              
+                </div>
+                <div class="tag-title center-align">
+                    <div class="miaoshus">
+                        <div class="title center-align">“ <%- theme.gallery.title %> ”</div>
+                        “ 日子过的好快，还好我都记录下来了。 ”                      
+                    </div>
+                </div>
+                <div class="my-gallery">
+                    <div class="row">
+                    <% if (site.data && site.data.gallery) { %>
+                        <% var gallery = site.data.gallery; %>
+                        <% for (var i = 0, len = gallery.length; i < len; i++) { %>
+                            <% var photo = gallery[i]; %>
+                            <% if (photo.cover){ %>
+                            <div class="photo col s12 m6 l4" data-spmid="./<%- photo.url_name %>">
+                                <div class="img-item">
+                                    <a href="./<%- photo.url_name %>" target="_blank">
+                                        
+                                        <img src="/medias/loading.svg" data-src="<%- photo.cover %>" class="responsive-img" alt="img"+<%- i %> />
+                                        <div class="biaotiss">
+                                            <!-- 福袋按钮 -->
+                                            <div class="caishendeng">        
+                                                <div class="caishenxian xiangcesd">
+                                                    <img class="caishenpic lions" src="/medias/spring-img/lion.png" />
+                                                </div>              
+                                            </div>
+                                            “ <%- photo.name %> ”<br>“ <%- photo.date %> ”
+                                        </div>
+                                    </a>
+                                </div>                              
+                            </div>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 评论板块 -->
+        <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+        </div>
+
+    </div>
+    
+    <script>
+        start()
+            $(window).on('scroll', function(){
+             start();
+        })
+        function start(){
+              //.not('[data-isLoaded]')选中已加载的图片不需要重新加载
+            $('.container img').not('[data-isLoaded]').each(function(){
+                var $node = $(this)
+                if( isShow($node) ){
+                    loadImg($node);
+                }
+            });
+         }
+        //判断一个元素是不是出现在窗口(视野)
+        function isShow($node){
+            return $node.offset().top <= $(window).height() + $(window).scrollTop();
+        }
+        //加载图片
+        function loadImg($img){
+        //.attr(值)
+        //.attr(属性名称,值)
+            $img.attr('src', $img.attr('data-src')); //把data-src的值 赋值给src
+            $img.attr('data-isLoaded', 1);//已加载的图片做标记
+        }
+    </script>
+</main>

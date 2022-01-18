@@ -1,0 +1,27 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    #sma {
+        bottom: 166px;
+    }
+    #switchspring {
+        bottom: 230px;
+    }
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    body.dark .bg-cover .description {
+        opacity: 0.8;
+    }
+    body.dark .bg-cover .title {
+        color: rgba(255, 255, 255, 0.85);
+    }
+</style>
+<main class="content">
+
+    <%- partial('_widget/tag-cloud') %>
+
+    <% if (site.tags && site.tags.length > 0) { %>
+    <%- partial('_widget/tag-wordcloud') %>
+    <% } %>
+
+</main>

@@ -1,0 +1,319 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/donatebg.jpg")!important;
+    } */
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    .card-content {
+        padding: 12px!important;
+    }
+    body.dark .dashang tr, body.dark .dashang th {
+        color: rgba(255, 255, 255, 0.4);
+    }
+    body.dark .dashang, body.dark .dashang th, body.dark .dashang tr, body.dark .dashang td {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    body.dark .dashang td {
+        background-color: #282c34;
+    }
+    body.dark .dashang td a {
+        color: #039be5;
+    }
+    #switchspring {
+        bottom: 223px;
+    }
+    .tangguo {
+        vertical-align: middle;
+        width: 34px;
+    }
+    .dashang th, .dashang td {
+        text-align: center;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+</style>
+
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 14px 0px!important;
+        }
+    }
+    @media only screen and (max-width: 412px) {
+        .cishunone {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 370px) {
+        .jietunone {
+            display: none;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 10px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/tang.png" />
+                </div>              
+            </div>
+            
+            <div class="card-content">
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic lions" src="/medias/spring-img/gugu.png" />
+                        </div>              
+                    </div>
+                    
+                    <div class="label" style="color: rgb(178, 143, 206);">
+                      <!-- 小帽子 -->
+                      <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                      <span>买个馒头吃吧</span></div>
+                    <p>如果你觉得本itsNeko开源博客还不错的话，欢迎赞赏一下itsNeko，感谢支持哦~ 
+                    </p>
+                </div>
+
+                <!-- 二维码模块 -->
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic huadengpic" src="/medias/spring-img/jiaozi.png" />
+                        </div>              
+                    </div>    
+                    <div class="label" style="color: rgb(134, 193, 102);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <span>支付宝（左），微信（右）</span></div>
+                    <p>
+                        <style>
+                            .xiangjipicss {
+                                margin-top: 16px;
+                            }
+                            .xiangjipic {
+                                width: 240px;
+                                vertical-align: middle;
+                                padding: 8px;
+                                border-radius: 14px;
+                                display: inline-block;
+                                margin: 2px 53px;
+                            }
+                            @media only screen and (max-width: 770px) {
+                                .xiangjipic {
+                                    display: list-item;
+                                    margin: 2px auto;
+                                    width: 310px;
+                                }
+                            } 
+                            @media only screen and (max-width: 380px) {
+                                .xiangjipic {
+                                    width: 270px;
+                                }
+                            } 
+                            @media only screen and (max-width: 361px) {
+                                .xiangjipic {
+                                    width: 222px;
+                                }
+                            } 
+                            @media only screen and (min-width: 1000px) and (max-width: 1130px) {
+                                .xiangjipic {
+                                    margin: 2px 20px;
+                                }
+                            }
+                            
+                        </style>
+                        <div class="xiangjipicss col s12 m6 l4">
+                            <img src="/medias/reward/alipay.jpg" class="xiangjipic" title="支付宝，谢谢支持" alt="支付宝，谢谢支持" />
+                            <img src="/medias/miao.jpg" class="xiangjipic" title="你资助博主的样子真好看，哈哈哈" alt="谢谢支持" />
+                            <img src="/medias/reward/wechat.png" class="xiangjipic" title="微信，谢谢支持" alt="微信，谢谢支持" />
+                        </div>
+                    </p>
+                </div>
+
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic huadengpic" src="/medias/spring-img/huadeng.png" />
+                        </div>              
+                    </div>
+                    
+                    <div class="label" style="color: rgb(251, 150, 110);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <span>打赏记录</span></div>
+                    <p>
+                        打赏规则：1 软妹币 = 1000 糖果 （打赏时可在支付页面填写自己的网址，博客名，备注信息哦，再次感谢支持）
+                    </p>
+                </div>
+
+                <!-- 打赏表格模块 -->
+                <table class="dashang">
+                    <tbody>
+                    <tr>
+                        <th>时间</th><th>人物</th><th>糖果数</th><th class="cishunone">次数</th><th class="jietunone">截图</th><th>备注</th>
+                    </tr>
+                    <!-- 以下每一个tr标签代表一个打赏者信息 -->
+                    <tr>
+                      <td><font color="Hotpink">2021-12-06</font></td><td><a href="javascript:;">晴城</a></td><td>6000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://s2.loli.net/2021/12/06/njkGDxQcamdrbA1.jpg" target="_blank">微信支付</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 加油哈，老哥，很喜欢你的博客，今天成为你的新一个粉丝 ~</font></td>
+                  </tr>
+                    <tr>
+                        <td><font color="Hotpink">2021-03-24</font></td><td><a href="javascript:;">*杨</a></td><td>2000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://7.dusays.com/2021/03/25/b5467a0019cf0.jpeg" target="_blank">微信支付</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 未留言，感谢你 ~</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2021-01-10</font></td><td><a href="https://mx142.cn/" target="_blank">Ming xin</a></td><td>10000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://7.dusays.com/2021/01/10/ff5c2559322e2.jpeg" target="_blank">微信转账</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 感谢hxd ~</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2020-12-22</font></td><td><a href="javascript:;" target="">*奥</a></td><td>2000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://7.dusays.com/2020/12/24/7e5bda45c8f98.jpeg" target="_blank">微信支付</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 想看看源码，学习一下~ </font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2020-12-11</font></td><td><a href="javascript:;" target="">*然</a></td><td>2000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://7.dusays.com/2020/12/24/2769bb3f4afca.jpeg" target="_blank">公众号赞赏</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 未留言，希望这位博主看到了能来留言板告诉我，感谢你~ </font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2020-12-06</font></td><td><a href="https://www.xiezhrspace.cn/" target="_blank">xie zhr</a></td><td>2000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="https://7.dusays.com/2020/12/24/b49afcaa062e4.jpeg" target="_blank">公众号赞赏</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 博主加油~ </font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2020-11-26</font></td><td><a href="https://mx142.cn/" target="_blank">Ming xin</a></td><td>20000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">2</td><td class="jietunone"><a href="https://7.dusays.com/2020/12/24/e69228166e878.jpeg" target="_blank">微信支付</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 网络安全 后期制作 ~</font></td>
+                    </tr>
+                    <tr>
+                        <td><font color="Hotpink">2020-11-26</font></td><td><a href="https://nekodeng.gitee.io/" target="_blank">itsNeko</a></td><td>3000 x <img src="/medias/candy.png" class="tangguo" /></td><td class="cishunone">1</td><td class="jietunone"><a href="javascript:;">微信支付</a></td><td><font color="Hotpink"><img src="/medias/laba.png" class="tangguo" style="width: 26px;" /> 博主加油！卟卟 ~</font></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <% if (theme.reward && theme.reward.enable) { %>
+                    <%- partial('_partial/reward') %>
+                <% } %>
+            </div>
+        </div>
+      
+        <!-- 评论模块 -->
+        <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+        </div>
+    </div>
+</main>

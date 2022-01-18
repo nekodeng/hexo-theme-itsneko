@@ -1,0 +1,290 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/musicsbg.jpg")!important;
+    } */
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    .musis > div {
+        margin-bottom: 60px;
+    }
+    .aplayer {
+        border-radius: 8px!important;
+    }
+    .comment-scroll {
+        bottom: 93px;
+    }
+    .v[data-class=v] .vcards {
+        display: none;
+    }
+    .musis div p {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 18px;
+    }
+    
+    .musictitle {
+        font-family: 'Architects Daughter', cursive;
+        font-size: 20px;
+        margin-bottom: 0px!important;
+    }
+    body.dark .musictitle {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .musiclink {
+        margin-bottom: 0px!important;
+    }
+    .musiclink a {
+        margin-bottom: 15px;
+        display: inline-block;
+        color: rgba(0,0,0,0.87);
+    }
+    /* 修改小屏幕下logo文字样式. */
+    @media only screen and (max-width: 600px) {
+        .about-cover {
+            height: 64vh;
+        }   
+    }
+</style>
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 14px 0px!important;
+        }
+    }
+    #switchspring {
+        bottom: 243px;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 1.3rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 8px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card musis">
+        
+        <div class="musictitle center-align">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/tang.png" />
+                </div>              
+            </div>
+            这里是博主心水的歌单
+        </div>
+        <hr>
+
+            <!-- 添加网易云我喜欢的歌曲模块 -->
+            <div class="wyya">
+                <p><i style="border-bottom: 1px solid #ad7a86;">网易云音乐</i></p>
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic lions" src="/medias/spring-img/gugu.png" />
+                        </div>              
+                    </div>
+                    <div class="label" style="color: rgb(178, 143, 206);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <span>itsNeko开源博主网抑云</span></div>
+                    <p>itsNeko开源博主，在musics.ejs文件中自行更换歌曲id哦</p>
+                </div>   
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+                <!-- require MetingJS -->
+                <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+                <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                    server="netease"
+                    type="playlist"
+                    id="3155294100"
+                    order= "random"
+                    theme="#ad7a86"
+                    loop="all"
+                    autoplay="false"
+                    storageName="aplayer-setting"
+                    hideLrc= "false"
+                    >
+                </meting-js>
+                <style>
+                        .aplayer{
+                            margin: 1.5rem 0;
+                        }
+                        ol li:before {
+                            display: none;
+                        }
+                        
+                </style>
+            </div>
+
+            <!-- 添加qq音乐我喜欢的歌曲模块 --> 
+            <div class="baozang">
+              <p><i style="border-bottom: 1px solid #ad7a86;">QQ音乐</i></p>
+              <div class="swbk">
+                  <!-- 福袋按钮 -->
+                  <div class="caishendeng">        
+                      <div class="caishenxian">
+                          <img class="caishenpic lions" src="/medias/spring-img/lion.png" />
+                      </div>              
+                  </div>
+                  
+                  <div class="label" style="color: rgb(188, 159, 119);">
+                      <!-- 小帽子 -->
+                      <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                     
+                      <span>itsNeko开源博主qq音乐</span></div>
+                  <p>itsNeko开源博主，在musics.ejs文件中自行更换歌曲id哦</p>
+              </div>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+              <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+              <!-- require MetingJS -->
+              <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+              <meting-js style="margin-top: 1.5rem;width: auto;height: auto;"
+                        server="tencent"
+                        type="playlist"
+                        id="7743877378"
+                        order= "list"
+                        theme="#ad7a86"
+                        loop="all"
+                        autoplay="false"
+                        storageName="aplayer-setting"
+                        hideLrc= "false"                      
+                        >
+              </meting-js>
+              <style>
+                  .aplayer{
+                      margin: 1.5rem 0;
+                  }
+                  ol li:before {
+                      display: none;
+                  }
+                  .card {
+                      padding: 24px;
+                  }
+              </style>
+            </div>
+        </div>
+
+            <!-- 以下是评论模块 -->
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+        
+
+    </div>
+</main>

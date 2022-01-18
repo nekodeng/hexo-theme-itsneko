@@ -1,0 +1,195 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    /* .bg-cover {
+        background-image: url("/medias/banner/contactbg.jpg")!important;
+    } */
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png)!important;
+    }
+    #sma {
+        bottom: 139.25px;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    .comment-scroll {
+        bottom: 79.25px;
+    }
+    .bozhushuo {
+        font-size: 19px!important;
+        margin: 0 0 12px!important;
+        line-height: 1.9rem;
+        font-family: "Linux Biolinum", "Noto Serif SC", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+    }
+</style>
+<style>
+  @media only screen and (max-width: 800px) {
+      .swbk {
+          padding: 26px 2px!important;
+          margin: 14px 0px!important;
+      }
+      .swbk p {
+          padding: 2px 10px;
+      }
+  }
+  .swbk {
+      position: relative;
+      padding: 26px 20px;
+      font-style: italic;
+      margin: 16px 80px;
+      -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+      box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+      -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+      transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+      transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+      transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+  }
+  .swbk:before {
+      content: " “ ";
+      top: 56px;
+      left: 10px;
+  }
+  .swbk:after {
+      content: " ” ";
+      bottom: 8px;
+      right: 5px;
+  }
+  .swbk:after, .swbk:before {
+      position: absolute;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 42px;
+      text-decoration: inherit;
+  }
+  body.dark .swbk:after, body.dark .swbk:before {
+      color: #d2c9c9;
+  }
+  .swbk p {
+      font-size: 19px!important;
+      line-height: 2.4rem;
+      text-indent: 2rem;
+      font-style: italic;
+      font-family: 'Architects Daughter', cursive!important;
+  }
+  .swbk .label {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 10px;
+      padding: 0 14px 0 32px;
+      height: 32px;
+      line-height: 32px;
+      border-radius: 0 3px 3px 0;
+      background-color: currentColor;
+  }
+  .swbk .label span {
+      color: #fff;
+  }
+  .swbk .label:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      border-style: solid;
+      border-width: 0 16px 16px 0;
+      border-color: transparent;
+      border-right-color: currentColor;
+      -webkit-filter: brightness(120%);
+      filter: brightness(120%);
+  }
+  @media screen and (min-width: 768px) {
+      .swbk .label {
+          left: -37px;
+      }
+  }
+  @media screen and (max-width: 767px) {
+      .swbk .label {
+          left: -18px;
+      }
+  }
+  .swbk:hover {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+      -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+      box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+  }
+</style>
+
+<main class="content">
+    <div id="contact" class="container chip-container">
+        <div class="card">
+            <!-- 福袋按钮 -->
+            <div class="caishendeng">        
+                <div class="guguxian">
+                    <img class="caishenpic gugus" src="/medias/spring-img/gugu.png" />
+                </div>              
+            </div>
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-comments"></i>&nbsp;&nbsp;<%= __('contact') %>
+                </div>
+                <!-- 加入网易云音乐热门评论，实时更新 -->
+                <div class="poem-wrap">
+                    <div class="poem-border poem-left">
+                    </div>
+                    <div class="poem-border poem-right">
+                    </div>
+                    <h1>热评</h1>
+                    <p id="poem">loading...</p>
+                    <p id="info">loading...</p>
+                </div>
+                <script>
+                    $.get("https://v1.hitokoto.cn?c=d&c=h&c=j",function(data,status){if(status=='success'){$('#poem').html(data.hitokoto);if(data.from_who!=null){$('#info').html(data.from_who+" · "+"《 "+data.from+" 》");}else{$('#info').html(" “ "+data.from+" ” ");}}else{$('#poem').html("获取出错啦");}});
+                </script>
+
+                <div class="swbk">
+                    <!-- 福袋按钮 -->
+                    <div class="caishendeng">        
+                        <div class="caishenxian">
+                            <img class="caishenpic lions" src="/medias/spring-img/lion.png" />
+                        </div>              
+                    </div>
+                    <div class="label" style="color: rgb(185, 136, 125);">
+                        <!-- 小帽子 -->
+                        <img class="labelmz" src="/medias/spring-img/maozi.png" />
+                        <span>itsNeko开源博客</span></div>
+                        <p class="bozhushuo">欢迎来到itsNeko开源博客留言</p>
+                        <p>itsNeko博客微信公众号：名称" itsNekoDeng博客 "，扫一扫订阅我，这样你就能准时收到我的文章更新啦。
+                            <div><img src="/medias/qrcode_for_gh.jpg" width="150" height="150" style="margin: 0 auto;display: block;" /></div>
+                        </p>
+                </div>
+
+                <%- page.content %>
+            </div>
+        </div>
+        <div class="card">
+            <% if (theme.gitalk && theme.gitalk.enable) { %>
+            <%- partial('_partial/gitalk') %>
+            <% } %>
+
+            <% if (theme.gitment.enable) { %>
+            <%- partial('_partial/gitment') %>
+            <% } %>
+
+            <% if (theme.disqus.enable) { %>
+            <%- partial('_partial/disqus') %>
+            <% } %>
+
+            <% if (theme.livere && theme.livere.enable) { %>
+            <%- partial('_partial/livere') %>
+            <% } %>
+
+            <% if (theme.valine && theme.valine.enable) { %>
+            <%- partial('_partial/valine') %>
+            <% } %>
+			
+			<% if (theme.minivaline && theme.minivaline.enable) { %>
+            <%- partial('_partial/minivaline') %>
+            <% } %>
+        </div>
+    </div>
+</main>

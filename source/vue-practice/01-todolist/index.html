@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue练习01-todolist-待办事项列表</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bulma/0.7.4/css/bulma.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+        <section class="hero is-primary">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                 代办事项列表
+                </h1>
+                <h2 class="subtitle">
+                  今日事，今日毕，明日何其多
+                </h2>
+              </div>
+            </div>
+          </section>
+
+          <section class="hero">
+            <div class="container" style="margin-top: 10px;">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input 
+                        @keyup.enter="addTodo"
+                        v-model="inputValue"
+                        class="input"
+                        type="text"
+                        placeholder="请输入代办事项"
+                        >
+                    </div>
+                    <div class="control">
+                        <a @click="addTodo" class="button is-info">
+                            添加
+                        </a>
+                    </div>
+                </div>
+
+                <div style="margin: 10px;">当前总共有{{todoTotal}}个代办事项，其实已完成{{hasCompletedTotal}}个，未完成{{unCompletedTotal}}个</div>
+
+                <h4 style="margin: 10px;">未完成事项总览</h4>
+                <div class="columns is-gapless is-multiline is-mobile">
+                    <div class="column is-one-quarter"
+                        v-for="todo in unCompletedDemo"
+                        :key="todo.id"
+                    >
+                        <div class="card">
+                            <div class="card-content">
+                              <div class="content">
+                               {{todo.title}}
+                              </div>
+                            </div>
+                            <footer class="card-footer">
+                              <span 
+                              :class="{
+                                  'card-footer-item': true,
+                                   'has-text-primary': todo.hasCompleted,
+                                   'has-text-danger': !todo.hasCompleted
+                            }">状态：{{ todo.hasCompleted ? '已完成': '未完成'}}</span>
+
+                              <span
+                              style="cursor: pointer;"
+                             @click="toggleCompleted(todo.id)"
+                              href="#" class="card-footer-item">标记为{{ todo.hasCompleted ? '未':'已'}}完成</span>
+                            </footer>
+                          </div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 10px;">已完成事项总览</h4>
+                <div class="columns is-gapless is-multiline is-mobile">
+                    <div class="column is-one-quarter"
+                        v-for="todo in hasCompletedDemo"
+                        :key="todo.id"
+                    >
+                        <div class="card">
+                            <div class="card-content">
+                              <div class="content">
+                               {{todo.title}}
+                              </div>
+                            </div>
+                            <footer class="card-footer">
+                              <span 
+                              :class="{
+                                  'card-footer-item': true,
+                                   'has-text-primary': todo.hasCompleted,
+                                   'has-text-danger': !todo.hasCompleted
+                            }">状态：{{ todo.hasCompleted ? '已完成': '未完成'}}</span>
+
+                              <span
+                              style="cursor: pointer;"
+                             @click="toggleCompleted(todo.id)"
+                              href="#" class="card-footer-item">标记为{{ todo.hasCompleted ? '未':'已'}}完成</span>
+                            </footer>
+                          </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+    </div>
+    <script src="../vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script>
+        new Vue ({
+            el: '#root',
+            data: {
+                id: 1,
+                inputValue: '',
+                todos: [{
+                    id: 1,
+                    title: '吃饭',
+                    hasCompleted: true
+                },
+                {
+                    id: 2,
+                    title: '睡觉',
+                    hasCompleted: false
+                }
+                ]
+            },
+            computed: {
+                todoTotal (){
+                    return this.todos.length //总数量事项
+                },
+                hasCompletedTotal () {
+                    return this.todos.filter(todo => todo.hasCompleted===true ).length //已经完成
+                },
+                unCompletedTotal () {
+                    return this.todoTotal - this.hasCompletedTotal // 未完成
+                },
+                hasCompletedDemo (){
+                    return this.todos.filter(todo=>todo.hasCompleted===true)
+                },
+                unCompletedDemo () {
+                    return this.todos.filter(todo=>todo.hasCompleted===false)
+                }
+
+            },
+            methods: {
+                addTodo (){
+                    this.todos.push({
+                        id: Math.random(),
+                        title: this.inputValue,
+                        hasCompleted: false
+                    })
+                    this.inputValue = ''
+                },
+                toggleCompleted (id){
+                    this.todos = this.todos.map (todo=>{
+                        if(todo.id === id){
+                            todo.hasCompleted = !todo.hasCompleted
+                        }
+                        return todo
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+</html>

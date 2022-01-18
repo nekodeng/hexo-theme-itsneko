@@ -1,0 +1,203 @@
+<!-- 加密功能 -->
+<% if (theme.PhotoVerifyPassword.enable) { %>
+    <script src="<%- theme.libs.js.crypto %>"></script>
+    <script>
+        (function() {
+            let pwd = '<%- page.password %>';
+
+            if (pwd && pwd.length > 0) {
+                if (pwd !== CryptoJS.SHA256(prompt('<%- theme.PhotoVerifyPassword.promptMessage %>')).toString(CryptoJS.enc.Hex)) {
+                    alert('<%- theme.PhotoVerifyPassword.errorMessage %>');
+                    location.href = '<%- url_for("/gallery")  %>';
+                }
+            }
+        })();
+    </script>
+<% } %>
+
+<!-- <%- partial('_partial/bg-cover') %> -->
+
+<link rel="stylesheet" href="<%- theme.libs.css.baguetteBoxCss %>">
+<!-- 该主题自带的lightGallery.js在图片多的时候会很卡，所以弃用，使用了一个我在网上找的baguetteBox，很轻量级，就是功能少了点 -->
+<script src="<%- theme.libs.js.baguetteBoxJs %>"></script> 
+<style>    
+    #sma {
+        bottom: 150px;
+    }
+    .my-gallery .photo img {
+        transition: all 0.6s ease-in-out; 
+    }     
+    .my-gallery .photo:hover img {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }      
+    .my-gallery {
+        margin: 20px auto;
+    }   
+    .miaoshus .title {
+        font-family: MV Boli;
+    }
+    .miaoshus {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 75%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 24px auto 12px;
+        
+    }
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+    body {
+        overflow: visible!important;
+    }
+    .box {
+            position: relative;
+            max-width: 1064px;
+        }
+    .box img {
+        width: 350px;
+        height: 350px;
+        vertical-align: top;
+        padding: 8px;
+        border-radius: 20px;
+        transition: all 0.5s;
+    }
+    .box img:hover {
+        transform: scale(1.05);
+    }
+    .page-footer {
+        display: none
+    }
+    body {
+        overflow-y: visible!important;
+    }
+    header {
+        background-color: #000;
+    }
+    .biaotiss {
+            font-family: MV Boli;
+        }   
+    canvas {
+        opacity: 0.3!important;
+    }
+    @media only screen and (max-width: 1058px) {
+        .box {
+            margin-left: 145px;
+        }
+    }
+    @media only screen and (max-width: 770px) {
+        .box {
+            margin-left: 15px;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        #previous-button, #next-button {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 380px) {
+        .box {
+            margin-left: -5px;
+        }
+    }
+    @media only screen and (max-width: 323px) {
+        .box img {
+            width: 296px;
+            left: 0;
+        }
+    }
+</style>
+
+<div class="tag-title center-align">
+        <div class="miaoshus">
+            <!-- 福袋按钮 -->
+        <div class="caishendeng">        
+            <div class="guguxian">
+                <img class="caishenpic gugus" src="/medias/spring-img/jiaozi.png" />
+            </div>              
+        </div>
+        <div class="title center-align">
+            “ <% if (is_home() && config.subtitle && config.subtitle.length > 0) { %>
+                <%= config.subtitle %>
+             <% } else { %>
+                <%= page.title %>
+             <% } %> ”
+        </div>
+        “ <%- theme.gallery.title %> ”
+        “ 这里有光影流年，还有两朵穿衣裳的云。”
+    </div>
+</div>
+
+<!-- 相册 -->
+<section class="gallery">
+    <div id="myGallery" class="my-gallery">
+        <div class="row">
+            <div class="box">
+            <% if (site.data && site.data.gallery) { %>
+                <% var galleries = site.data.gallery; 
+                    var pageTitle = page.title;
+                    function getCurrentGallery(galleries, pageTitle) {
+                        for (let i = 0; i < galleries.length; i++) {
+                            if (galleries[i]['name'] == pageTitle) {
+                                return galleries[i];
+                            }
+                        }
+                    }
+                    var currentGallery = getCurrentGallery(galleries, pageTitle);
+                    var photos = currentGallery.album;
+                %>
+                <% for (var i = 0, len = photos.length; i < len; i++) { %>
+                    <% var my_album = photos[i]; %>                   
+                        <a href="<%- my_album.img_url %>" data-caption="<%- my_album.title %>">
+                            <img class="mat" src="/medias/loading.svg" data-src="<%- my_album.img_url %>" alt="img"+<%- i %> >
+                        </a>                   
+                <% } %>
+            <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    baguetteBox.run('.gallery', {
+        // 配置参数
+        buttons:Boolean,//是否显示导航按钮。
+        noScrollbars:true,//是否在显示时隐藏滚动条。
+        titleTag:true,//是否使用图片上的title属性作为图片标题
+        async:true,//是否异步加载文件。
+    });
+
+    start()
+        $(window).on('scroll', function(){
+         start();
+    })
+
+    function start(){
+          //.not('[data-isLoaded]')选中已加载的图片不需要重新加载
+        $('.gallery img').not('[data-isLoaded]').each(function(){
+            var $node = $(this)
+            if( isShow($node) ){
+                loadImg($node);
+            }
+        });
+     }
+
+    //判断一个元素是不是出现在窗口(视野)
+    function isShow($node){
+        return $node.offset().top <= $(window).height() + $(window).scrollTop();
+    }
+    //加载图片
+    function loadImg($img){
+    //.attr(值)
+    //.attr(属性名称,值)
+        $img.attr('src', $img.attr('data-src')); //把data-src的值 赋值给src
+        $img.attr('data-isLoaded', 1);//已加载的图片做标记
+    }
+</script>

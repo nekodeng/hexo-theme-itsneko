@@ -1,0 +1,151 @@
+<style type="text/css">
+    .about-cover {
+        height: 75vh;
+    }
+    #sma {
+        bottom: 150px;
+    }
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+    .card .card-content {
+        padding: 24px 24px 24px 24px;
+        border-radius: 0 0 2px 2px;
+    }
+    .mb-4 {
+        padding: 20px 24px 0px 24px;
+    }
+</style>
+
+<%- partial('_partial/bg-cover') %>
+
+<main class="content">
+    <div id="aboutme" class="container about-container">
+        <div class="card">
+            <style>
+                .rowss {
+                    --bs-gutter-x: 1.5rem;
+                    --bs-gutter-y: 0;
+                    display: flex;
+                    flex: 1 0 100%;
+                    flex-wrap: wrap;
+                    margin-top: calc(var(--bs-gutter-y) * -1);
+                    margin-right: calc(var(--bs-gutter-x)/ -2);
+                    margin-left: calc(var(--bs-gutter-x)/ -2);
+                }
+                @media (min-width: 768px) {
+                    .col-md-4 {
+                        flex: 0 0 auto;
+                        width: 33.33333%!important;
+                    }
+                }
+                .rowss>* {
+                    flex-shrink: 0;
+                    width: 100%;
+                    max-width: 100%;
+                    padding-right: calc(var(--bs-gutter-x)/ 2);
+                    padding-left: calc(var(--bs-gutter-x)/ 2);
+                    margin-top: var(--bs-gutter-y);
+                }
+                .card-counter.info {
+                    background: linear-gradient(to right, #1aaac3, #1aaac3); 
+                    color: #FFF;
+                }
+                .card-counter.primary {
+                    background: linear-gradient(to right, #6219ff, #6219ff); 
+                    color: #FFF;
+                }
+                .card-counter.success {
+                    background: linear-gradient(to right, #19c15b, #19c15b); 
+                    color: #FFF;
+                }
+            
+                .card-counter {
+                margin: 5px;
+                padding: 20px 10px;
+                background-color: #fff;
+                height: 6.5rem;
+                border-radius: 10px;
+                transition: .3s linear all;
+                position: relative;
+            }
+            .card-counter svg {
+                width: 5rem;
+                height: 5rem;
+                opacity: 0.5;
+            }
+            .col-md-4 .icon {
+                /* width: 1rem;
+                height: 1rem; */
+                fill: currentColor;
+                overflow: hidden;
+            }
+            .card-counter .count-numbers {
+                position: absolute;
+                right: 35px;
+                top: 20px;
+                font-size: 32px;
+                display: block;
+            }
+            .col-md-4 span {
+                display: inline-flex;
+                align-items: center;
+            }
+            .card-counter .count-name {
+                position: absolute;
+                right: 35px;
+                top: 65px;
+                font-style: italic;
+                text-transform: capitalize;
+                opacity: 0.5;
+                display: block;
+                font-size: 18px;
+            }
+            .count-numbers a {
+                color: #fff!important;
+            }
+            </style>
+            <div class="rowss mb-4">
+                <div class="col-md-4">
+                    <div class="card-counter info">
+                        <svg class="icon" aria-hidden="true" id="darkMode">
+                            <use xlink:href="#wenzhang">
+                                <svg id="wenzhang" viewBox="0 0 1024 1024"><path d="M837 66.8H190.5c-55.2 0-99.5 44.3-99.5 98.9v694.6c0 54.6 44.6 98.9 99.5 98.9H837c55.2 0 99.5-44.3 99.5-98.9V165.8c0-54.7-44.5-99-99.5-99zM295.9 196.2c41.5 0 75.2 33.4 75.2 75.2 0 41.5-33.4 75.2-75.2 75.2-41.5 0-75.2-33.4-75.2-75.2 0-41.6 33.4-75.2 75.2-75.2z m227.6 560.5H220.7v-49.6h302.8v49.6z m173-129.4H220.7v-49.6h475.7v49.6z m0-129.3H220.7v-49.6h475.7V498z"></path></svg>
+                            </use>
+                        </svg>
+                        <% if (site.posts && site.posts.length > 0) { %>
+                        <span class="count-numbers"><a href="<%- url_for('/') %>"><%- site.posts.length %></a></span>
+                        <% } %>
+                        <span class="count-name">文章</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-counter primary">
+                        <svg class="icon" aria-hidden="true" id="darkMode">
+                            <use xlink:href="#fenlei1"><svg id="fenlei1" viewBox="0 0 1024 1024"><path d="M302.545455 115.846465c51.717172 0 98.521212 20.945455 132.266666 54.690909 0.387879 0.387879 0.775758 0.775758 1.163637 1.292929 33.228283 33.616162 53.656566 79.773737 53.656565 130.715152v166.270707c0 11.377778-9.179798 20.557576-20.557576 20.557575H302.545455c-51.587879 0-98.391919-20.945455-132.266667-54.690909C136.40404 400.808081 115.458586 354.133333 115.458586 302.545455c0-51.587879 20.945455-98.262626 54.820202-132.137374 33.874747-33.745455 80.678788-54.561616 132.266667-54.561616z m132.266666 736.969697c-33.874747 33.745455-80.549495 54.690909-132.137374 54.690909-51.070707 0-97.357576-20.428283-131.10303-53.527273-0.387879-0.387879-0.775758-0.775758-1.292929-1.163636-33.874747-33.745455-54.820202-80.420202-54.820202-132.137374 0-51.587879 20.945455-98.262626 54.820202-132.137374 33.874747-33.745455 80.678788-54.690909 132.266667-54.690909h166.529292c11.377778 0 20.557576 9.309091 20.557576 20.557576v166.270707c0 51.587879-20.945455 98.262626-54.820202 132.137374z m154.246465-682.278788c33.874747-33.745455 80.678788-54.690909 132.266667-54.690909 51.717172 0 98.521212 20.945455 132.266666 54.690909C887.59596 204.412121 908.541414 251.086869 908.541414 302.545455c0 51.587879-20.945455 98.133333-54.820202 132.00808l-0.129293 0.129293c-33.874747 33.745455-80.549495 54.690909-132.266666 54.690909H554.925253c-11.377778 0-20.557576-9.179798-20.557576-20.557575V302.545455c0-51.458586 20.945455-98.262626 54.690909-132.008081z m0 682.795959c33.874747 33.745455 80.678788 54.690909 132.266667 54.690909 51.717172 0 98.521212-20.945455 132.266666-54.690909 33.874747-33.745455 54.820202-80.420202 54.820202-132.00808 0-51.587879-20.945455-98.133333-54.820202-132.008081l-0.129293-0.129293c-33.874747-33.745455-80.549495-54.690909-132.137373-54.690909H554.925253c-11.377778 0-20.557576 9.179798-20.557576 20.557575v166.270708c0 51.458586 20.945455 98.133333 54.690909 132.00808z m0 0"></path></svg></use>
+                        </svg>
+                        <% if (site.categories && site.categories.length > 0) { %>
+                        <span class="count-numbers"><a href="<%- url_for('/categories') %>"><%- site.categories.length %></a></span>
+                        <% } %>
+                        <span class="count-name">分类</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-counter success">
+                        <svg class="icon" aria-hidden="true" id="darkMode">
+                            <use xlink:href="#pinglun"><svg id="pinglun" viewBox="0 0 1035 1024"><path d="M905.899 44.032H129.365C58.027 44.032 0 102.059 0 173.397v518.144c0 71.339 58.027 129.366 129.365 129.366h253.952l134.144 163.84 133.803-163.84h254.293c71.339 0 129.366-58.027 129.366-129.366V173.397c0.341-71.338-57.686-129.365-129.024-129.365zM236.885 498.005c-34.474 0-62.464-27.989-62.464-62.464 0-34.474 27.99-62.464 62.464-62.464 34.475 0 62.464 27.99 62.464 62.464 0 34.475-27.989 62.464-62.464 62.464z m281.259 0c-34.475 0-62.464-27.989-62.464-62.464 0-34.474 27.99-62.464 62.464-62.464 34.475 0 62.464 27.99 62.464 62.464 0 34.475-27.99 62.464-62.464 62.464z m281.259 0c-34.475 0-62.464-27.989-62.464-62.464 0-34.474 27.989-62.464 62.464-62.464 34.474 0 62.464 27.99 62.464 62.464 0 34.475-27.99 62.464-62.464 62.464z m0 0"></path></svg></use>
+                        </svg>
+                        <% if (site.tags && site.tags.length > 0) { %>
+                        <span class="count-numbers"><a href="<%- url_for('/tags') %>"><%- site.tags.length %></a></span>
+                        <% } %>
+                        <span class="count-name">标签</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <%- partial('_widget/post-charts') %>
+            </div>
+            <%- partial('_widget/my-gallery') %>
+        </div>
+    </div>
+</main>

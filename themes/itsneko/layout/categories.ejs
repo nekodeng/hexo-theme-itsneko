@@ -1,0 +1,24 @@
+<%- partial('_partial/bg-cover') %>
+<style>
+    #sma {
+        bottom: 166px;
+    }
+    #switchspring {
+        bottom: 230px;
+    }
+    @media only screen and (max-width: 601px) {
+        #switchspring {
+            bottom: 178px!important;
+        }
+    }
+    .bg-cover::before {
+        background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png);
+    }
+</style>
+<main class="content">
+    <%- partial('_widget/category-cloud') %>
+
+    <% if (site.categories && site.categories.length > 0) { %>
+    <%- partial('_widget/category-radar') %>
+    <% } %>
+</main>
