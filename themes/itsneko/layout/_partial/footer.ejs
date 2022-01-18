@@ -13,12 +13,11 @@
   <%- partial('_widget/music') %>
   <% } %>
 
-<<<<<<< HEAD
   <div class="container row center-align"
     style="margin-bottom: <% if (theme.time.enable) { %>15<% } else { %>0<% } %>px !important;">
     <!-- 访客地图 -->
     <div class="col s12 m3 l3 social-link" id="visitmap">
-      <a href="https://clustrmaps.com/site/" title="访客地图"><img src="/medias/map-visit.png" /></a>
+      <a href="https://clustrmaps.com/site/1bd51" title="访客地图"><img src="/medias/map-visit.png" /></a>
     </div>
     <!-- 版权信息 -->
     <div class="col s12 m6 l6 copy-right">
@@ -101,105 +100,31 @@
       <% } %>
       <br>
       <% if (theme.icp.enable) { %>
-      <span id="icp"><img src="<%- theme.jsDelivr.url %><%- url_for('/medias/icp.png') %>"
-          style="vertical-align: text-bottom;" />
-        <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%= theme.icp.text %></a>
+      <span id="icp">
+        <a href="<%- url_for(theme.icp.url) %>" target="_blank">
+          <img src="<%- theme.jsDelivr.url %><%- url_for('/medias/icp.png') %>"
+            style="vertical-align: text-bottom;width: 16px;height: 16px;" />
+          <%= theme.icp.text %>
+        </a>
       </span>
       <% } %>
     </div>
     <div class="col s12 m3 l3 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
-=======
-  <div class="container row center-align" style="margin-bottom: <% if (theme.time.enable) { %>15<% } else { %>0<% } %>px !important;">
-        <!-- 访客地图 -->
-        <div class="col s12 m3 l3 social-link" id="visitmap">
-            <a href="https://clustrmaps.com/site/" title="访客地图"><img src="/medias/map-visit.png" /></a>
-        </div>
-        <!-- 版权信息 -->
-        <div class="col s12 m6 l6 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year"><%- theme.time.year %></span>
-            <a href="<%- url_for('/about') %>" target="_blank"><%- config.author %></a>
-            &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            &nbsp;Theme&nbsp;<a href="https://gitee.com/nekodeng/hexo-theme-itsneko.git" target="_blank">itsNeko</a>
-            <br>
-            
-            <% if (theme.postInfo.totalCount) { %>
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total number of words: &nbsp;<span
-                class="white-color"><%= totalcount(site) %></span>&nbsp;
-            <% } %>
-            <% let socialClass = '' %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
-            <% socialClass = 'social-statis' %>
-            <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
-            <span id="busuanzi_container_site_pv">
-                <i class="far"></i>Total access: &nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;
-            </span>
-            <% } %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
-            <span id="busuanzi_container_site_uv">
-                <i class="fas"></i>Total visits: &nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;
-            </span>
-            <% } %>
-            <br>
-            <% if (theme.time.enable) { %>
-            <span id="sitetime">running time</span>
-            <script>
-                function siteTime() {
-                    var seconds = 1000;
-                    var minutes = seconds * 60;
-                    var hours = minutes * 60;
-                    var days = hours * 24;
-                    var years = days * 365;
-                    var today = new Date();
-                    var startYear = "<%- theme.time.year %>";
-                    var startMonth = "<%- theme.time.month %>";
-                    var startDate = "<%- theme.time.date %>";
-                    var startHour = "<%- theme.time.hour %>";
-                    var startMinute = "<%- theme.time.minute %>";
-                    var startSecond = "<%- theme.time.second %>";
-                    var todayYear = today.getFullYear();
-                    var todayMonth = today.getMonth() + 1;
-                    var todayDate = today.getDate();
-                    var todayHour = today.getHours();
-                    var todayMinute = today.getMinutes();
-                    var todaySecond = today.getSeconds();
-                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
-                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
-                    var diff = t2 - t1;
-                    var diffYears = Math.floor(diff / years);
-                    var diffDays = Math.floor((diff / days) - diffYears * 365);
-                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
-                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
-                        minutes);
-                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
-                        diffMinutes * minutes) / seconds);
-                    if (startYear == todayYear) {
-                        document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffDays+"</span>" + " d " + "<span class= 'white-color'>"+diffHours+"</span>" +
-                            " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " + "<span class= 'white-color'>"+diffSeconds+"</span>" + " s";
-                    } else {
-                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "The site has been running for " + "<span class= 'white-color'>"+diffYears+"</span>" + " y " + "<span class= 'white-color'>"+diffDays+"</span>" +
-                            " d " + "<span class= 'white-color'>"+diffHours+"</span>" + " h " + "<span class= 'white-color'>"+diffMinutes+"</span>" + " m " +"<span class= 'white-color'>"+ diffSeconds+"</span>" + " s";
-                    }
-                }
-                setInterval(siteTime, 1000);
-            </script>
-            <% } %>
-            <br>
-            <% if (theme.icp.enable) { %>
-            <span id="icp"><img src="<%- theme.jsDelivr.url %><%- url_for('/medias/icp.png') %>" style="vertical-align: text-bottom;" />
-                <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%= theme.icp.text %></a>
-            </span>
-            <% } %>
-        </div>
-        <div class="col s12 m3 l3 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
->>>>>>> 6576c8929fd357beff1c3cfadded4a9b45374ea1
   </div>
-
+  <!-- 波浪条waveline -->
+  <div class="wavelinefooter">
+    <style>
+      .wavelinefooter {
+        background: url(/medias/wave.png) 0 0 repeat-x;
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -3px;
+        background-size: 10px 3px;
+      }
+    </style>
+  </div>
 </footer>
 
 <!-- 底部进度条 -->
