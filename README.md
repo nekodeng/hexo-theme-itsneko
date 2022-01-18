@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="note info">前言：本文是关于itsNeko开源博客食用方法详解，感谢使用本开源博客。时间过的好快，还好我都记录下来了。</div>
 
 ### itsNeko开源介绍
