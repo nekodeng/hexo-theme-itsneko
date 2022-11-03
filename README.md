@@ -129,15 +129,15 @@ hexo s
 - <code>各大页面banner图 -> 若你不想使用默认图片，将以下代码复制到对应页面ejs文件中并修改图片链接即可。
 
 
+```
     <style>
       /* banner背景图 */
       .bg-cover {
           background-image: url("图片链接地址")!important;
       }
     </style>
-
+```
 
 ### 怎样联系itsNeko
 - 留言：itsNeko博客地址:<a href="https://dyfa.top/" target="_blank">itsNeko博客~</a>
 - 邮箱：nekodeng@qq.com
-
